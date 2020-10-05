@@ -11,6 +11,7 @@ async function run() {
 
         !requirements.includes("datapane") && requirements.push("datapane");
 
+        core.info("Requirements:");
         core.info(requirements);
 
         for (const requirement in requirements) {
