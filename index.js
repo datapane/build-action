@@ -3,7 +3,7 @@ const { exec } = require("@actions/exec");
 
 async function run() {
      try {
-        const scriptPath = core.getInput("path");
+        const scriptPath = core.getInput("script_path");
         const token = core.getInput("token");
         const requirements = JSON.parse(core.getInput("requirements"));
         const params = core.getInput("parameters");
