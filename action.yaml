@@ -1,7 +1,7 @@
 name: "Datapane Build"
 description: "Build a datapane script"
 inputs:
-  path:
+  script_path:
     description: "Path to your script"
     required: true
   token:
