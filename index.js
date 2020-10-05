@@ -11,6 +11,10 @@ async function run() {
 
         !requirements.includes("datapane") && requirements.push("datapane");
 
+        core.info("__dirname:");
+        core.info(__dirname);
+
+
         for (const requirement of requirements) {
             core.info(`installing ${requirement}`);
             await exec(`pip install ${requirement}`);

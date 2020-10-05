@@ -1,5 +1,7 @@
 on: [push]
 
+defaults:
+
 jobs:
   test_job:
     runs-on: ubuntu-latest
