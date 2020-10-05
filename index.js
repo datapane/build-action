@@ -1,14 +1,29 @@
 const core = require("@actions/core");
-// const github = require("@actions/github");
-// const exec = require("@actions/exec");
+const { exec } = require("@actions/exec");
 
-try {
-    const scriptPath = core.getInput("path");
-    const token = core.getInput("token");
-    const requirements = core.getInput("requirements");
-    const params = core.getInput("parameters");
-    core.setOutput("summary",  token);
+async function run() {
+     try {
+        const scriptPath = core.getInput("path");
+        const token = core.getInput("token");
+        const requirements = JSON.parse(core.getInput("requirements"));
+        const params = core.getInput("parameters");
+        const server = core.getInput("server");
 
-} catch (error) {
-    core.setFailed(error.message);
+        !requirements.includes("datapane") && requirements.push("datapane");
+
+        for (const requirement in requirements) {
+            await exec(`pip install ${requirement}`);
+        }
+
+        if (token) {
+            await exec(`datapane login --token=${token} --server=${server}`);
+        }
+
+        await exec(`python ${scriptPath}`);
+
+    } catch (error) {
+        core.setFailed(error.message);
+    }
 }
+
+run();

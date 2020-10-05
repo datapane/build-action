@@ -13,6 +13,7 @@ inputs:
     required: false
   requirements:
     description: "Your script's dependencies"
+    default: "[]"
     required: false
   parameters:
     description: "Parameters to use inside your script"
