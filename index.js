@@ -1,7 +1,6 @@
 const core = require("@actions/core");
 const { exec } = require("@actions/exec");
 const path = require("path");
-const os = require("os");
 
 async function run() {
      try {
@@ -13,9 +12,6 @@ async function run() {
         const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
 
         !requirements.includes("datapane") && requirements.push("datapane");
-
-        core.info("Workspace::");
-        core.info(process.env.GITHUB_WORKSPACE);
 
         for (const requirement of requirements) {
             core.info(`installing ${requirement}`);
