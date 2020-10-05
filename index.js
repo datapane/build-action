@@ -10,7 +10,7 @@ async function run() {
         const requirements = JSON.parse(core.getInput("requirements"));
         const params = core.getInput("parameters");
         const server = core.getInput("server");
-        const fullScriptPath = path.join(__dirname, "..", ".github/workflows", scriptPath);
+        const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
 
         !requirements.includes("datapane") && requirements.push("datapane");
 
