@@ -1,5 +1,7 @@
 const core = require("@actions/core");
 const { exec } = require("@actions/exec");
+const path = require("path");
+const os = require("os");
 
 async function run() {
      try {
@@ -8,12 +10,9 @@ async function run() {
         const requirements = JSON.parse(core.getInput("requirements"));
         const params = core.getInput("parameters");
         const server = core.getInput("server");
+        const fullScriptPath = path.join(__dirname, "..", scriptPath);
 
         !requirements.includes("datapane") && requirements.push("datapane");
-
-        core.info("__dirname:");
-        core.info(__dirname);
-
 
         for (const requirement of requirements) {
             core.info(`installing ${requirement}`);
@@ -25,8 +24,8 @@ async function run() {
             await exec(`datapane login --token=${token} --server=${server}`);
         }
 
-        core.info(`Executing ${scriptPath}`);
-        await exec(`python ${scriptPath}`);
+        core.info(`Executing ${fullScriptPath}`);
+        await exec(`python ${fullScriptPath}`);
 
     } catch (error) {
         core.setFailed(error.message);
