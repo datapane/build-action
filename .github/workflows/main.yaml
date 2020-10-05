@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: DP test job
+    steps:
+      - name: Test action step
+        id: test_action
+        uses: Buroni/dp-actions-test
+        with:
+          path: "tests/dp_script.py"
+      - name: Get the output
+        run: echo "Summary is ${{ steps.test_action.outputs.summary }}"

@@ -1,23 +1,26 @@
 name: "Datapane Build"
 description: "Build a datapane script"
 inputs:
-  - path:
-      description: "Path to your script"
-      required: true
-  - token:
-      description: "API token"
-  - server:
-      description: "The server that your desired Datapane instance is hosted on"
-      default: "https://datapane.com/"
-  - requirements:
-      decription: "Your script's dependencies"
-  - parameters:
-      description: "Parameters to use inside your script"
-      default: [
-      ]
+  path:
+    description: "Path to your script"
+    required: true
+  token:
+    description: "API token"
+    required: false
+  server:
+    description: "The server that your desired Datapane instance is hosted on"
+    default: "https://datapane.com/"
+    required: false
+  requirements:
+    description: "Your script's dependencies"
+    required: false
+  parameters:
+    description: "Parameters to use inside your script"
+    default: "[]"
+    required: false
 outputs:
-  - summary:
-      description: "Test summary"
+  summary:
+    description: "Test summary"
 runs:
   using: "node12"
   main: "index.js"
