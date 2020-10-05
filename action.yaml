@@ -8,10 +8,16 @@ inputs:
       description: "API token"
   - server:
       description: "The server that your desired Datapane instance is hosted on"
+      default: "https://datapane.com/"
   - requirements:
       decription: "Your script's dependencies"
   - parameters:
       description: "Parameters to use inside your script"
+      default: [
+      ]
+outputs:
+  - summary:
+      description: "Test summary"
 runs:
   using: "node12"
   main: "index.js"
