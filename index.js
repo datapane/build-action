@@ -12,7 +12,7 @@ async function run() {
         !requirements.includes("datapane") && requirements.push("datapane");
 
         core.info("Requirements:");
-        core.info(requirements);
+        core.info(typeof requirements);
 
         for (const requirement in requirements) {
             core.info(`installing ${requirement}`);
