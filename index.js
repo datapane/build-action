@@ -14,7 +14,7 @@ async function run() {
 
         !requirements.includes("datapane") && requirements.push("datapane");
 
-        core.info("Workspace:");
+        core.info("Workspace::");
         core.info(process.env.GITHUB_WORKSPACE);
 
         for (const requirement of requirements) {
