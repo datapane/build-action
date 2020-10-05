@@ -10,5 +10,5 @@ jobs:
           python-version: 3.8
       - uses: Buroni/dp-actions-test@main
         with:
-          script_path: "tests/dp_script.py"
+          script_path: "dp_script.py"
         id: test_action
