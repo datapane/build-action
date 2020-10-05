@@ -8,6 +8,7 @@ try {
     const requirements = core.getInput("requirements");
     const params = core.getInput("parameters");
     core.setOutput("summary",  token);
+
 } catch (error) {
     core.setFailed(error.message);
 }
