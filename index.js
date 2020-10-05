@@ -14,6 +14,9 @@ async function run() {
 
         !requirements.includes("datapane") && requirements.push("datapane");
 
+        core.info("Workspace:");
+        core.info(process.env.GITHUB_WORKSPACE);
+
         for (const requirement of requirements) {
             core.info(`installing ${requirement}`);
             await exec(`pip install ${requirement}`);
