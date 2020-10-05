@@ -14,18 +14,18 @@ async function run() {
         core.info("Requirements:");
         core.info(core.getInput("requirements"));
 
-        for (const requirement in requirements) {
-            core.info(`installing ${requirement}`);
-            await exec(`pip install ${requirement}`);
-        }
-
-        if (token) {
-            core.info(`Logging in to ${server}`);
-            await exec(`datapane login --token=${token} --server=${server}`);
-        }
-
-        core.info(`Executing ${scriptPath}`);
-        await exec(`python ${scriptPath}`);
+        // for (const requirement in requirements) {
+        //     core.info(`installing ${requirement}`);
+        //     await exec(`pip install ${requirement}`);
+        // }
+        //
+        // if (token) {
+        //     core.info(`Logging in to ${server}`);
+        //     await exec(`datapane login --token=${token} --server=${server}`);
+        // }
+        //
+        // core.info(`Executing ${scriptPath}`);
+        // await exec(`python ${scriptPath}`);
 
     } catch (error) {
         core.setFailed(error.message);
