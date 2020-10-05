@@ -1,0 +1,18 @@
+name: "Datapane Build"
+description: "Build a datapane script"
+inputs:
+  - path:
+      description: "Path to your script"
+      required: true
+  - token:
+      description: "API token"
+  - server:
+      description: "The server that your desired Datapane instance is hosted on"
+  - requirements:
+      decription: "Your script's dependencies"
+  - parameters:
+      description: "Parameters to use inside your script"
+runs:
+  using: "node12"
+  main: "index.js"
+
