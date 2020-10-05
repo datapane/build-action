@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Test action step
         id: test_action
-        uses: Buroni/dp-actions-test@v1
+        uses: Buroni/dp-actions-test@main
         with:
           path: "tests/dp_script.py"
       - name: Get the output
