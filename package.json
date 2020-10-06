@@ -4,6 +4,7 @@
   "description": "Datapane test action",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Datapane",
@@ -11,5 +12,8 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
   }
 }
