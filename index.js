@@ -23,6 +23,12 @@ async function run() {
 
         const paramsExec = Object.entries(params).map(([k, v]) => `--parameter ${k}=${v}`).join(" ");
 
+        core.info("PARAMS::");
+        core.info(core.getInput("parameters"));
+        core.info(params);
+        core.info(paramsExec);
+        core.info("---");
+
         core.info(`Executing ${fullScriptPath}`);
         await exec(`python ${fullScriptPath} ${paramsExec}`);
 
