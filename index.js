@@ -27,7 +27,7 @@ async function run() {
         core.info(core.getInput("parameters"));
         core.info(params);
         core.info(paramsExec);
-        core.info("---");
+        core.info("----");
 
         core.info(`Executing ${fullScriptPath}`);
         await exec(`python ${fullScriptPath} ${paramsExec}`);
