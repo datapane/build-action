@@ -17,7 +17,7 @@ inputs:
     required: false
   parameters:
     description: "Parameters to use inside your script"
-    default: "[]"
+    default: "{}"
     required: false
 outputs:
   summary:
