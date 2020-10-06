@@ -15,4 +15,3 @@ report = dp.Report(
 )
 
 report.publish(name="layout_report")
-# report.save(path="local_layout_report.html")
