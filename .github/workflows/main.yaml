@@ -12,4 +12,5 @@ jobs:
       - uses: Buroni/dp-actions-test@main
         with:
           script_path: "dp_script.py"
+          token: ${{ secrets.TOKEN }}
         id: test_action
