@@ -29,8 +29,8 @@ async function run() {
         core.info(paramsExec);
         core.info("----");
 
-        core.info(`Executing ${fullScriptPath}`);
-        await exec(`python ${fullScriptPath} ${paramsExec}`);
+        // core.info(`Executing ${fullScriptPath}`);
+        // await exec(`python ${fullScriptPath} ${paramsExec}`);
 
     } catch (error) {
         core.setFailed(error.message);
