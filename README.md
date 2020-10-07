@@ -1,5 +1,5 @@
 # dp-actions-test
-Github action for building a datapane report.
+Github action for building a Datapane report.
 
 ## Example Workflow
 
