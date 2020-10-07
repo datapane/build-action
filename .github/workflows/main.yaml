@@ -14,6 +14,7 @@ jobs:
       - uses: Buroni/dp-actions-test@main
         with:
           script_path: "${{ env.script_path }}"
+          install_from_git: "true"
           token: ${{ secrets.TOKEN }}
           parameters: '{"foo": "bar"}'
         id: test_action
