@@ -2,7 +2,7 @@ on: [push]
 
 env:
   install_from_git: "true"
-  requirements: "[networkx]"
+  requirements: '["networkx"]'
 jobs:
   test_job:
     runs-on: ubuntu-latest
