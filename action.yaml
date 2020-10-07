@@ -9,7 +9,7 @@ inputs:
     required: false
   server:
     description: "The server that your desired Datapane instance is hosted on"
-    default: "https://datapane.com/"
+    default: "https://datapane.com"
     required: false
   requirements:
     description: "Your script's dependencies"
