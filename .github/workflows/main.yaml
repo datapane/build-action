@@ -1,7 +1,5 @@
 on: [push]
 
-env:
-  script_path: "tests/dp_script.py"
 jobs:
   test_job:
     runs-on: ubuntu-latest
@@ -13,8 +11,9 @@ jobs:
           python-version: 3.8
       - uses: Buroni/dp-actions-test@main
         with:
-          script_path: "${{ env.script_path }}"
-          install_from_git: "true"
+          script_path: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
+          install_from_git: "true"
+          requirements: "[networkx]"
           parameters: '{"foo": "bar"}'
         id: test_action
