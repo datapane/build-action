@@ -22,5 +22,5 @@ jobs:
           token: ${{ secrets.TOKEN }}
           install_from_git: "${{ env.install_from_git }}"
           requirements: "${{ env.requirements }}"
-          parameters: '{"foo": "bar"}'
+          parameters: '{"foo": "baz"}'
         id: test_action
