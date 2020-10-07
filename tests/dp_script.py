@@ -10,7 +10,7 @@ def gen_df(dim: int = 4) -> pd.DataFrame:
 
 # Report
 report = dp.Report(
-    "## Sample report",
+    f"## Sample report\n{dp.Params['foo']}",
     dp.Table(gen_df(10000), can_pivot=False)
 )
 

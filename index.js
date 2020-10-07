@@ -7,7 +7,7 @@ const pushUniq = (el, arr) => {
 };
 
 const gitInstall = async () => {
-    await exec("git clone git@github.com:datapane/datapane datapane-cli");
+    await exec("git clone https://github.com/datapane/datapane datapane-cli");
     await exec("rm datapane-cli/src/datapane/resources/local_report/local-report-base.css datapane-cli/src/datapane/resources/local_report/local-report-base.js");
     await exec("touch datapane-cli/src/datapane/resources/local_report/local-report-base.css datapane-cli/src/datapane/resources/local_report/local-report-base.js");
     await exec("pip install ./datapane-cli");
