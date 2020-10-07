@@ -1,8 +1,5 @@
 on: [push]
 
-env:
-  install_from_git: "true"
-  requirements: '["networkx"]'
 jobs:
   test_job:
     runs-on: ubuntu-latest
@@ -20,7 +17,6 @@ jobs:
         with:
           script_path: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
-          install_from_git: "${{ env.install_from_git }}"
-          requirements: "${{ env.requirements }}"
+          install_from_git: "true"
           parameters: '{"foo": "baz"}'
         id: test_action
