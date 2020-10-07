@@ -2,6 +2,10 @@ const core = require("@actions/core");
 const { exec } = require("@actions/exec");
 const path = require("path");
 
+const pushUniq = (el, arr) => {
+    !arr.includes(el) && arr.push(el);
+};
+
 async function run() {
      try {
         const scriptPath = core.getInput("script_path");
@@ -11,7 +15,9 @@ async function run() {
         const server = core.getInput("server");
         const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
 
-        !requirements.includes("datapane") && requirements.push("datapane");
+        const isNotebook = scriptPath.split(".").pop() === "ipynb";
+        pushUniq("datapane", requirements);
+        isNotebook && pushUniq("nbconvert", requirements);
 
         core.info("Installing dependencies");
         await exec(`pip install ${requirements.join(" ")}`);
@@ -24,7 +30,7 @@ async function run() {
         const paramsExec = Object.entries(params).map(([k, v]) => `--parameter ${k}=${v}`).join(" ");
 
         core.info(`Executing ${fullScriptPath}`);
-        await exec(`python ${fullScriptPath} ${paramsExec}`);
+        await exec(isNotebook ? `nbconvert --to notebook --execute ${fullScriptPath}` : `python ${fullScriptPath} ${paramsExec}`);
 
     } catch (error) {
         core.setFailed(error.message);
