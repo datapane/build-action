@@ -19,9 +19,10 @@ inputs:
     description: "Parameters to use inside your script"
     default: "{}"
     required: false
-outputs:
-  summary:
-    description: "Test summary"
+  install_from_git:
+    description: "Build Datapane from git rather than installing the latest PyPI release"
+    default: false
+    required: false
 runs:
   using: "node12"
   main: "dist/index.js"
