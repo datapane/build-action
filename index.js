@@ -6,6 +6,13 @@ const pushUniq = (el, arr) => {
     !arr.includes(el) && arr.push(el);
 };
 
+const gitInstall = async () => {
+    await exec("git clone git@github.com:datapane/datapane datapane-cli");
+    await exec("rm datapane-cli/src/datapane/resources/local_report/local-report-base.css datapane-cli/src/datapane/resources/local_report/local-report-base.js");
+    await exec("touch datapane-cli/src/datapane/resources/local_report/local-report-base.css datapane-cli/src/datapane/resources/local_report/local-report-base.js");
+    await exec("pip install ./datapane-cli");
+};
+
 async function run() {
      try {
         const scriptPath = core.getInput("script_path");
@@ -20,7 +27,8 @@ async function run() {
         isNotebook && pushUniq("nbconvert", requirements);
 
         core.info("Installing dependencies");
-        await exec(`pip install ${requirements.join(" ")}`);
+        // await exec(`pip install ${requirements.join(" ")}`);
+        await gitInstall();
 
         if (token) {
             core.info(`Logging in to ${server}`);
