@@ -21,15 +21,16 @@ async function run() {
         const installFromGit = JSON.parse(core.getInput("install_from_git"));
         const params = JSON.parse(core.getInput("parameters"));
         const server = core.getInput("server");
-        const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
 
+        const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
         const isNotebook = scriptPath.split(".").pop() === "ipynb";
-        pushUniq("datapane", requirements);
+        
+        !installFromGit && pushUniq("datapane", requirements);
         isNotebook && pushUniq("nbconvert", requirements);
 
         core.info("Installing dependencies");
-        // await exec(`pip install ${requirements.join(" ")}`);
-        await gitInstall();
+        await exec(`pip install ${requirements.join(" ")}`);
+        installFromGit && await gitInstall();
 
         if (token) {
             core.info(`Logging in to ${server}`);
