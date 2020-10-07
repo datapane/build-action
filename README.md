@@ -28,7 +28,7 @@ jobs:
 | token | Datapane API token to use | No |
 | server | Server to log in to | https://datapane.com |
 | parameters | Stringified JSON object of parameter key-value pairs | `"{}"`
-| requirements | Stringified JSON array of extra PyPI dependencies to install | "[]"
+| requirements | Stringified JSON array of extra PyPI dependencies to install | `"[]"`
 | install_from_git | Build Datapane from git if `"true"`, and from PyPI if `"false"` | `"false"`
 
 Note that all input parameters should be given as strings.
