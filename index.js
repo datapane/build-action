@@ -24,12 +24,12 @@ async function run() {
 
         const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
         const isNotebook = scriptPath.split(".").pop() === "ipynb";
-        
+
         !installFromGit && pushUniq("datapane", requirements);
         isNotebook && pushUniq("nbconvert", requirements);
 
         core.info("Installing dependencies");
-        await exec(`pip install ${requirements.join(" ")}`);
+        requirements.length > 0 && await exec(`pip install ${requirements.join(" ")}`);
         installFromGit && await gitInstall();
 
         if (token) {
