@@ -18,7 +18,8 @@ async function run() {
         const scriptPath = core.getInput("script_path");
         const token = core.getInput("token");
         const requirements = JSON.parse(core.getInput("requirements"));
-        const params = core.getInput("parameters");
+        const installFromGit = JSON.parse(core.getInput("install_from_git"));
+        const params = JSON.parse(core.getInput("parameters"));
         const server = core.getInput("server");
         const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
 

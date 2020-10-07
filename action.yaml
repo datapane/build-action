@@ -21,7 +21,7 @@ inputs:
     required: false
   install_from_git:
     description: "Build Datapane from git rather than installing the latest PyPI release"
-    default: false
+    default: "false"
     required: false
 runs:
   using: "node12"
