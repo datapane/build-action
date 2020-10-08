@@ -12,6 +12,7 @@ md = f"""
 ## datapane/build-action sample report
 ### Params
 {dp.Params["foo"]=}
+
 {dp.Params["qux"]=}
 """
 
