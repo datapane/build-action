@@ -14,5 +14,5 @@ jobs:
           script_path: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
           install_from_git: "true"
-          parameters: '{"foo": "baz"}'
+          parameters: '{"foo": "bar", "qux": "baz"}'
         id: test_action

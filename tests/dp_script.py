@@ -8,10 +8,18 @@ def gen_df(dim: int = 4) -> pd.DataFrame:
     data = {"x": axis, "y": axis}
     return pd.DataFrame.from_dict(data)
 
+md = f"""
+## datapane/build-action sample report
+### Params
+{dp.Params["foo"]=}
+{dp.Params["qux"]=}
+"""
+
 # Report
 report = dp.Report(
-    f"## Sample report\n{dp.Params['foo']}",
+    md,
+    "### Table",
     dp.Table(gen_df(10000), can_pivot=False)
 )
 
-report.publish(name="layout_report")
+report.publish(name="build_action_test_report")
