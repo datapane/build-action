@@ -113,14 +113,14 @@ jobs:
 See GH [docs](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow-on-github) for running a parameterised datapane workflow using the GH Action UI.
 
 
-### Trigger by API/Webhook
+#### Trigger by API/Webhook
 
 See GH [docs](https://docs.github.com/en/free-pro-team@latest/rest/reference/actions#create-a-workflow-dispatch-event) for running a parameterised datapane workflow via an API Call.
 
 Essentially, you need to send a POST request to `/repos/{owner}/{repo}/actions/workflows/{workflow_name}/dispatches`. So for a repo called `acme/reporting`, with a workflow as above called `financial_report` the following would work,
 
-```sh
-curl \
+```bash
+$ curl \
   -u GH_USERNAME:GH_TOKEN \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
@@ -128,9 +128,12 @@ curl \
   -d '{"ref":"ref", "inputs": { "company": "APPL", "market": "UK"} }'
 ```
 
-# Advanced Usage
+## Advanced Usage
 
-## Caching
+### Caching
+
+#### Caching pip
+
 Pip dependencies can be cached via [actions/cache](https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python#caching-dependencies).
 The cache key should contain the `requirements` and `install_from_git` input parameters, if they're used. 
 
@@ -162,9 +165,9 @@ jobs:
 ```
 
 
-#### Caching the packages
+#### Caching packages
 
-It's also possible to cache the packages themselves, speeding up action running, by creating a `venv` first, activating it, and caching it between runs.
+It's also possible to cache the installed packages themselves, speeding up action running, by creating a `venv` first, activating it, and caching it between runs.
 
 ```yaml
 env:
