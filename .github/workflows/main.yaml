@@ -9,11 +9,7 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: 3.8
-      - uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ env.requirements }}-${{ env.install_from_git }}
-      - uses: Buroni/dp-actions-test@main
+      - uses: datapane/build-action@v1
         with:
           script_path: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}

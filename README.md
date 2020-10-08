@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: 3.8
-      - uses: Buroni/dp-actions-test@main
+      - uses: datapane/build-action@v1
         with:
           script_path: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
