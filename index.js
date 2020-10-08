@@ -15,7 +15,7 @@ const gitInstall = async () => {
 
 async function run() {
      try {
-        const scriptPath = core.getInput("script_path");
+        const scriptPath = core.getInput("script");
         const token = core.getInput("token");
         const requirements = JSON.parse(core.getInput("requirements"));
         const installFromGit = JSON.parse(core.getInput("install_from_git"));
@@ -40,7 +40,7 @@ async function run() {
         const paramsExec = Object.entries(params).map(([k, v]) => `--parameter ${k}=${v}`).join(" ");
 
         core.info(`Executing ${fullScriptPath}`);
-        await exec(isNotebook ? `nbconvert --to notebook --execute ${fullScriptPath}` : `python ${fullScriptPath} ${paramsExec}`);
+        await exec(isNotebook ? `jupyter-nbconvert --to notebook --execute ${fullScriptPath}` : `python ${fullScriptPath} ${paramsExec}`);
 
     } catch (error) {
         core.setFailed(error.message);

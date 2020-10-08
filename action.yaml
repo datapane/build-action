@@ -1,30 +1,29 @@
 name: "Datapane Build"
-description: "Build a datapane report from a script inside your repo"
+description: "Build a Datapane report from a script inside your repo"
 branding:
   icon: "box"
   color: "blue"
 inputs:
-  script_path:
+  script:
     description: "Path to your script"
     required: true
   token:
     description: "API token"
     required: false
   server:
-    description: "The server that your desired Datapane instance is hosted on"
+    description: "Datapane server host"
     default: "https://datapane.com"
     required: false
   requirements:
-    description: "Your script's dependencies"
+    description: "Script dependencies, using pip requirements syntax"
     default: "[]"
     required: false
   parameters:
-    description: "Parameters to use inside your script"
+    description: "Script Parameters"
     default: "{}"
     required: false
-  install_from_git:
-    description: "Build Datapane from git rather than installing the latest PyPI release"
-    default: "false"
+  version:
+    description: "Datapane version to install, using pip specification"
     required: false
 runs:
   using: "node12"
