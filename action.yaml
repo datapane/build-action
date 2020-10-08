@@ -1,5 +1,8 @@
 name: "Datapane Build"
-description: "Build a datapane script"
+description: "Build a datapane report from a script inside your repo"
+branding:
+  icon: "box"
+  color: "blue"
 inputs:
   script_path:
     description: "Path to your script"
