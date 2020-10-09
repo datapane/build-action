@@ -20,4 +20,5 @@ jobs:
           script: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
           parameters: '{"foo": "bar", "qux": "baz"}'
+          version: "git"
         id: test_action
