@@ -14,7 +14,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ os.runner }}-pip-${{ env.version }}
+          key: ${{ runner.os }}-pip-${{ env.version }}
       - uses: datapane/build-action@v1
         with:
           script: "tests/dp_script.py"
