@@ -135,13 +135,13 @@ $ curl \
 #### Caching pip
 
 Pip dependencies can be cached via [actions/cache](https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python#caching-dependencies).
-The cache key should contain the `requirements` and `install_from_git` input parameters, if they're used. 
+The cache key should contain the `requirements` and `version` input parameters, if they're used. 
 
 An example workflow on Ubuntu with caching is shown below:
 
 ```yaml
 env:
-  install_from_git: "true"
+  version: "==0.8.0"
   requirements: '["networkx"]'
 jobs:
   build_report:
@@ -160,7 +160,7 @@ jobs:
         with:
           script: "reports/financials.py"
           token: ${{ secrets.TOKEN }}
-          install_from_git: "${{ env.install_from_git }}"
+          version: "${{ env.version }}"
           requirements: "${{ env.requirements }}"
 ```
 
@@ -171,7 +171,7 @@ It's also possible to cache the installed packages themselves, speeding up actio
 
 ```yaml
 env:
-  install_from_git: "true"
+  version: "==0.8.0"
   requirements: '["networkx==2.5", "pandas==1.0.5"]'
 jobs:
   build_report:
