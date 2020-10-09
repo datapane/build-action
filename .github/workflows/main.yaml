@@ -15,7 +15,7 @@ jobs:
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ env.version }}
-      - uses: datapane/build-action@v1
+      - uses: datapane/build-action@main
         with:
           script: "tests/dp_script.py"
           token: ${{ secrets.TOKEN }}
