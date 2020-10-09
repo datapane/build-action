@@ -18,14 +18,15 @@ async function run() {
         const scriptPath = core.getInput("script");
         const token = core.getInput("token");
         const requirements = JSON.parse(core.getInput("requirements"));
-        const installFromGit = JSON.parse(core.getInput("install_from_git"));
+        const version = core.getInput("version");
         const params = JSON.parse(core.getInput("parameters"));
         const server = core.getInput("server");
 
         const fullScriptPath = path.join(process.env.GITHUB_WORKSPACE, scriptPath);
         const isNotebook = scriptPath.split(".").pop() === "ipynb";
+        const installFromGit = version === "git";
 
-        !installFromGit && pushUniq("datapane", requirements);
+        !installFromGit && pushUniq(`datapane${version}`, requirements);
         isNotebook && pushUniq("nbconvert", requirements);
 
         core.info("Installing dependencies");
